@@ -6,7 +6,7 @@ class OneToHundredStream extends Readable {
     _read() {
       const i = this.index++;
   
-      setTimeout(() => {
+      setTimeout(() => {  
         if (i > 5) {
           this.push(null);
         } else {
