@@ -3,6 +3,11 @@
 import {json} from './middlewares/json.js';
 import http from 'http';
 import { routes } from './routes.js';
+
+// Query Parameters: URL Stateful -> filtro de informações não sensíveis (paginação)
+// Route Parameters: Identificação de recurso
+// Request Bodyy: Envio de informações de um formulário (HTTPs)
+
 // import http from 'node:crypto'
 
 // comonJS ==> require
@@ -23,16 +28,17 @@ import { routes } from './routes.js';
 // HTTP Status Code
 const server = http.createServer(async (req, res) => {
     const {method, url} = req;
-    // console.log(method, url)
 
     await json(req, res)
     
     const route = routes.find(route => {
-        return route.method == method && route.path == url;
+        return route.method == method && route.path.test(url)
     })
     console.log(route)
 
     if (route){
+        const routeParams = req.url.match(route.path)
+        req.params = {...routeParams.groups}
         return route.handler(req,res)
     }
     return res.writeHead(404).end('Not Found, deu')
