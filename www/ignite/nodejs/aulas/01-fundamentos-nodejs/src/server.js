@@ -21,7 +21,6 @@ import { routes } from './routes.js';
 // Cabeçalhos (req/res) => metadados
 
 // HTTP Status Code
-
 const server = http.createServer(async (req, res) => {
     const {method, url} = req;
     // console.log(method, url)
@@ -32,6 +31,10 @@ const server = http.createServer(async (req, res) => {
         return route.method == method && route.path == url;
     })
     console.log(route)
+
+    if (route){
+        return route.handler(req,res)
+    }
     return res.writeHead(404).end('Not Found, deu')
 
 })
