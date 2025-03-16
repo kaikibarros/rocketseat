@@ -23,8 +23,17 @@ export class Database{
 
     // #database = { } faz com que seja uma propriedade privada
     select(table){
-        const data = this.#database[table] ?? []
+        let data = this.#database[table] ?? []
 
+        //mecanismo de busca
+        if (search) {
+            data = data.filter(row => {
+                return Object.entries(search).some((key, value) => {
+                    return row(key).toLowerCase().includes(value.toLowerCase);
+
+                })
+                });
+        }
         return data
     }
 
