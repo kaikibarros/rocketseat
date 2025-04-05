@@ -17,17 +17,12 @@
 
 // framework
 import fastify from 'fastify';
-import { knex } from './database';
+import { transactionsRoutes } from './routes/transactions';
+
 
 const app = fastify()   
-
-app.get('/hello',async () => {
-      const tables = await knex('sqlite_schema').select('*')
-    //  const transactions = await knex('transactions')
-    .select('*') 
-    
-   
-    return tables
+app.register(transactionsRoutes, {
+    prefix: 'transactions',
 })
 
 app.listen({
