@@ -18,9 +18,12 @@
 // framework
 import fastify from 'fastify';
 import { transactionsRoutes } from './routes/transactions';
+import cookie from '@fastify/cookie'
 
 
-const app = fastify()   
+const app = fastify()  
+
+app.register(cookie)
 app.register(transactionsRoutes, {
     prefix: 'transactions',
 })
@@ -40,6 +43,7 @@ app.listen({
 // npm install knex -g 
 // migration CLI
 // npx knex migrate:make create-transactions 
+// npm i @fastify/cookie
                                                                                                                                                                                                                                                                                                                                                                                                    
 /* CORREÇÃO DE BUG COM O CREATE-DOCUMENTS
 -npm install ts-node --save-dev
@@ -54,3 +58,4 @@ app.listen({
 // choco install httpie
 // npm i dotenv
 //  npm i zod
+// Utiilização do Vitest para testes unitários

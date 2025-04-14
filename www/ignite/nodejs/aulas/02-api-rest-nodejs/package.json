@@ -17,9 +17,11 @@
     "eslint": "^8.57.1",
     "ts-node": "^10.9.2",
     "tsx": "^4.19.3",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "vitest": "^3.1.1"
   },
   "dependencies": {
+    "@fastify/cookie": "^11.0.2",
     "dotenv": "^16.4.7",
     "fastify": "^5.2.2",
     "http": "^0.0.1-security",
