@@ -37,7 +37,7 @@ app.listen({
 // npm i @fastify/cookie
 // npm i @types/supertest -D
 // npm i --save-dev @types/jest
-                                                                                                                                                                                                                                                                                                                                                                                                   
+// npm i tsup -D                                                                                                                                                                                                                                                                                                                                                                              
 /* CORREÇÃO DE BUG COM O CREATE-DOCUMENTS
 -npm install ts-node --save-dev
 -node --require ts-node/register ./node_modules/knex/bin/cli.js migrate:make create-documents
