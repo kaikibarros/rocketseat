@@ -35,6 +35,8 @@ app.listen({
 // migration CLI
 // npx knex migrate:make create-transactions 
 // npm i @fastify/cookie
+// npm i @types/supertest -D
+// npm i --save-dev @types/jest
                                                                                                                                                                                                                                                                                                                                                                                                    
 /* CORREÇÃO DE BUG COM O CREATE-DOCUMENTS
 -npm install ts-node --save-dev
